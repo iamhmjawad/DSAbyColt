@@ -1,0 +1,28 @@
+// collecting all ods
+const collectOdds = (nums) => {
+    let result = []
+    // base case
+    if (nums.length === 0) {
+        return result
+    }
+    if (nums[0] % 2 !== 0) {
+        result.push(nums[0])
+    }
+
+    result = result.concat(collectOdds(nums.slice(1)))
+
+    return result
+}
+
+console.log(collectOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+// Visual explanation of [1,2,3,4]
+// result = [1].concat(collectOdds(2,3,4))
+// result = [].concat(collectOdds(3,4))
+// result = [3].concat(collectOdds(4))
+// result = [].concat(collectOdds(0)) returns result which is just []
+
+// result = [].[] = []
+// result = [3].[] = [3]
+// result = [].[3] = [3]
+// result = [1].[3] = [1,3] - Final Result at the end
