@@ -6,6 +6,7 @@ def product_of_array(arr):
         if len(helper_input) == 0:
             return
         result = result * helper_input[0]
+        # Excluding 1st element of the Array
         helper(helper_input[1:])
     helper(arr)
     return result
